@@ -1,0 +1,36 @@
+<body>
+    <header class="page-title">
+        <h1>Prompt Library <a href="forge.html" id="add-new-prompt-btn">+ Add New Prompt</a></h1>
+    </header>
+
+    <div id="search-bar-container">
+        <input type="text" id="search-input" placeholder="Search prompts by title, description, or tags...">
+    </div>
+
+    <div id="main-container">
+        <!-- Prompt cards will be dynamically inserted here.
+             Example card structure that script.js will create:
+        <div class="prompt-card">
+            <h3>Card Title</h3>
+            <p class="description">Short description...</p>
+            <div class="tags-container">
+                <span class="tag">tag1</span><span class="tag">tag2</span>
+            </div>
+            <button class="view-prompt-btn" data-prompt-id="some-id">View Details</button>
+        </div>
+        -->
+    </div>
+
+    <div id="no-prompts-message" style="text-align: center; color: #777; margin: 20px; display: none;">
+        <p>No prompts found. Try adding some or importing a library!</p>
+    </div>
+
+    <div id="library-management">
+        <h2>Library Management</h2>
+        <button id="export-library-btn">Export Library (JSON)</button>
+        <input type="file" id="import-library-input" accept=".json" style="display: none;">
+        <button id="import-library-btn">Import Library (JSON)</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
