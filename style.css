@@ -1,0 +1,389 @@
+/* style.css - Global Styles and Index Page Styles */
+
+/* Global Resets & Defaults */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa; /* Light gray background */
+    color: #343a40; /* Dark gray text */
+    line-height: 1.6;
+}
+
+.container { /* General purpose container for pages like prompt-view, forge */
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px 25px;
+    background-color: #ffffff; /* White background for content */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.075);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #212529; /* Slightly darker headings */
+    margin-top: 0;
+    margin-bottom: 0.75em;
+}
+
+h1 { font-size: 2.2em; text-align: center; padding: 20px 0; }
+h2 { font-size: 1.6em; color: #0056b3; border-bottom: 1px solid #dee2e6; padding-bottom: 0.3em; margin-bottom: 1em;}
+h3 { font-size: 1.3em; }
+
+a {
+    color: #007bff; /* Standard blue link color */
+    text-decoration: none;
+}
+a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+button, input[type="button"], input[type="submit"] {
+    display: inline-block;
+    padding: 10px 18px;
+    font-size: 1em;
+    font-weight: 500;
+    color: #ffffff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    margin-right: 8px; /* Default margin for buttons */
+}
+button:hover, input[type="button"]:hover, input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+button:disabled, input[type="button"]:disabled, input[type="submit"]:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* Utility Classes */
+.text-center { text-align: center; }
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+
+/* --- Index Page Specific Styles (index.html) --- */
+.page-title { /* For the main H1 on index.html */
+    background-color: #343a40;
+    color: white;
+    padding: 25px 20px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+.page-title a#add-new-prompt-btn { /* Style for the "+ Add New Prompt" button */
+    padding: 8px 12px;
+    background-color: #28a745; /* Green */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.85em;
+    margin-left: 15px;
+    transition: background-color 0.2s;
+}
+.page-title a#add-new-prompt-btn:hover {
+    background-color: #1e7e34;
+}
+
+#search-bar-container {
+    max-width: 800px;
+    margin: 0 auto 25px auto; /* Centered search bar */
+    padding: 15px;
+    background-color: #e9ecef; /* Light background for search area */
+    border-radius: 8px;
+}
+#search-input {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 1.1em;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#main-container { /* Used for prompt cards gallery */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px; /* Gap between cards */
+    padding: 10px 20px; /* Padding around the gallery */
+    max-width: 1200px; /* Max width for the gallery */
+    margin: 0 auto; /* Center the gallery */
+}
+
+.prompt-card {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6; /* Lighter border */
+    border-radius: 8px;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+    width: calc(33.333% - 25px); /* Default for 3 columns, adjust for gap */
+    display: flex;
+    flex-direction: column; /* Align content vertically */
+}
+.prompt-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px);
+}
+
+.prompt-card h3 { /* Title inside card */
+    font-size: 1.25em;
+    color: #0056b3;
+    margin-bottom: 10px;
+}
+.prompt-card p.description { /* Description inside card */
+    font-size: 0.95em;
+    color: #495057;
+    margin-bottom: 15px;
+    flex-grow: 1; /* Makes description take available space, pushing button down */
+    min-height: 40px; /* Ensure some min height */
+}
+.prompt-card .tags-container {
+    margin-bottom: 15px;
+    min-height: 20px; /* Space even if no tags */
+}
+.prompt-card .tag {
+    background-color: #e9ecef;
+    color: #495057;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    margin-right: 5px;
+    margin-bottom: 5px; /* Allow tags to wrap */
+    display: inline-block;
+}
+.prompt-card .view-prompt-btn { /* "View Details" button in card */
+    align-self: flex-start; /* Align button to the start of the flex cross axis */
+    background-color: #17a2b8; /* Info blue */
+}
+.prompt-card .view-prompt-btn:hover {
+    background-color: #117a8b;
+}
+
+#library-management {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #f0f0f0; /* Kept original for distinction */
+    border-radius: 8px;
+    text-align: center; /* Center buttons */
+}
+#library-management h2 {
+    margin-bottom: 15px;
+    border-bottom: none; /* Remove border if not needed here */
+}
+#library-management button {
+    margin: 5px;
+}
+
+/* Responsive adjustments for prompt cards */
+@media (max-width: 992px) {
+    .prompt-card {
+        width: calc(50% - 25px); /* 2 columns for medium screens */
+    }
+}
+@media (max-width: 768px) {
+    .prompt-card {
+        width: 100%; /* 1 column for small screens */
+    }
+    h1 { font-size: 1.8em; }
+    .page-title a#add-new-prompt-btn { display: block; margin: 10px auto 0 auto; width: fit-content;}
+    #search-bar-container { padding: 10px; }
+    #main-container { padding: 10px; }
+}
+
+
+/* --- Prompt View Page Specific Styles (prompt-view.html) --- */
+/* .container is already defined globally */
+
+#prompt-view-header { /* For the H1 and back link container */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+#prompt-view-header h1 { /* The title of the prompt */
+    margin-bottom: 0; /* Reset from global h1 */
+    text-align: left; /* Override global */
+    padding: 0; /* Override global */
+}
+.back-link {
+    font-size: 0.9em;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+.back-link:hover { text-decoration: underline; }
+
+.prompt-meta-section { margin-bottom: 20px; }
+.prompt-detail { margin-bottom: 10px; font-size: 1.05em; }
+.prompt-detail strong {
+    display: inline-block;
+    min-width: 110px; /* Align labels */
+    color: #555;
+}
+.prompt-detail span#prompt-description { display: block; margin-top: 5px; padding-left: 110px; } /* Indent description text */
+.prompt-detail .tags span.tag { /* Re-using .tag style from index, but can be specific */
+    background-color: #e9ecef;
+    color: #495057;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+#variables-container .variable-input-group { /* Renamed from .variable-input for clarity */
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 5px;
+}
+#variables-container label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #333;
+}
+#variables-container input[type="text"],
+#variables-container textarea {
+    width: calc(100% - 22px); /* Full width minus padding */
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+#variables-container textarea { min-height: 60px; }
+
+#assembled-prompt-container {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #e9ecef; /* Light background for assembled prompt */
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    min-height: 120px;
+    white-space: pre-wrap; /* Preserve line breaks and spaces */
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 0.95em;
+    line-height: 1.5;
+}
+#copy-prompt-btn { margin-top: 15px; background-color: #28a745; } /* Green for copy */
+#copy-prompt-btn:hover { background-color: #1e7e34; }
+
+
+/* --- Intelligent Forge Page Specific Styles (forge.html) --- */
+.page-header { /* Global already defined, can be specialized if needed */
+    background-color: #007bff; /* Default blue */
+    color: white;
+    padding: 20px 25px;
+    text-align: center;
+    margin-bottom: 20px; /* Space below header */
+}
+.page-header h1 { margin: 0; font-size: 1.8em; color:white; padding:0; text-align:center; }
+
+/* .container for forge.html is global */
+/* .nav-link for forge.html is global */
+
+.form-section {
+    margin-bottom: 30px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #e9ecef; /* Lighter border */
+}
+.form-section:last-of-type { /* No border for the last section (Save button area) */
+     border-bottom: none;
+     padding-bottom: 10px; /* Less padding if it's just a button */
+}
+.form-section h2 { /* Already styled globally, can be more specific */
+    font-size: 1.5em;
+    color: #0056b3; /* Darker blue for section titles */
+}
+
+#forge-content label { /* General label styling within the forge */
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #495057; /* Softer color for labels */
+}
+#forge-content input[type="text"],
+#forge-content textarea,
+#forge-content select { /* select might be used later */
+    width: 100%; /* Full width */
+    padding: 12px 15px; /* Comfortable padding */
+    margin-bottom: 15px; /* Space below inputs */
+    border: 1px solid #ced4da; /* Standard border */
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1em;
+    background-color: #fff; /* Ensure white background */
+}
+#forge-content textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+#raw-prompt-input { /* Specific styling for the large raw text area */
+    min-height: 150px;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    background-color: #fdfdff; /* Slightly off-white */
+    font-size: 0.95em;
+}
+
+#variables-list .variable-item { /* Styling for each variable row in forge */
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+    gap: 10px; /* Space between elements */
+    margin-bottom: 12px;
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    align-items: center; /* Align items vertically */
+}
+#variables-list .variable-item span { font-weight:normal; color:#333; margin-right:5px;} /* Label for var item */
+#variables-list .variable-item input[type="text"] {
+    flex-grow: 1; /* Allow inputs to grow */
+    min-width: 150px; /* Minimum width before wrapping/shrinking */
+    margin-bottom: 0; /* Remove default margin from general input style */
+}
+#variables-list .variable-item button.remove-var-btn {
+    padding: 8px 12px;
+    font-size: 0.9em;
+    background-color: #dc3545; /* Red for remove */
+}
+#variables-list .variable-item button.remove-var-btn:hover { background-color: #c82333; }
+
+#add-variable-btn { background-color: #17a2b8; margin-top:10px; } /* Info blue for add */
+#add-variable-btn:hover { background-color: #117a8b; }
+
+#save-prompt-btn {
+    background-color: #28a745; /* Green for save */
+    padding: 12px 25px; /* Larger save button */
+    font-size: 1.1em;
+    display: block; /* Make it block to center it easily */
+    margin: 20px auto 0 auto; /* Center button */
+}
+#save-prompt-btn:hover { background-color: #1e7e34; }
+
+/* Responsive adjustments for forge page forms */
+@media (max-width: 600px) {
+    #variables-list .variable-item {
+        flex-direction: column; /* Stack elements in variable item */
+        align-items: flex-start; /* Align to start */
+    }
+    #variables-list .variable-item input[type="text"] {
+        width: 100%; /* Full width for inputs in stacked view */
+    }
+    #forge-content input[type="text"],
+    #forge-content textarea { padding: 10px; } /* Slightly less padding on small screens */
+}
+```

@@ -1,0 +1,50 @@
+<body>
+    <header class="page-header">
+        <h1>The Intelligent Forge</h1>
+    </header>
+
+    <div class="container" id="forge-content"> <!-- Added id for more specific CSS rules if needed -->
+        <a href="index.html" class="nav-link">&laquo; Back to Library</a>
+
+        <div class="form-section">
+            <h2>1. Paste Raw Prompt Text</h2>
+            <label for="raw-prompt-input">Paste your full prompt here. The system will try to deconstruct it.</label>
+            <textarea id="raw-prompt-input" placeholder="Example: Create a marketing campaign for a new {product_name} targeting {target_audience}. The campaign should emphasize {key_benefit}."></textarea>
+        </div>
+
+        <div class="form-section">
+            <h2>2. Review Inferred Details</h2>
+            <label for="prompt-title">Title:</label>
+            <input type="text" id="prompt-title" placeholder="e.g., Marketing Campaign Generator">
+
+            <label for="prompt-description">Description:</label>
+            <textarea id="prompt-description" placeholder="e.g., Generates a marketing campaign outline."></textarea>
+
+            <label for="prompt-category">Category:</label>
+            <input type="text" id="prompt-category" placeholder="e.g., Marketing, Content Creation">
+
+            <label for="prompt-tags">Tags (comma-separated):</label>
+            <input type="text" id="prompt-tags" placeholder="e.g., marketing, new product, campaign">
+        </div>
+
+        <div class="form-section">
+            <h2>3. Refine Deconstructed Prompt</h2>
+            <label for="base-prompt">Base Prompt (template with {placeholders}):</label>
+            <textarea id="base-prompt" placeholder="e.g., Create a marketing campaign for a new {product_name}..."></textarea>
+
+            <h3>Variables:</h3>
+            <div id="variables-list">
+                <!-- Variables will be dynamically added here -->
+                <p>Variables will appear here once the raw prompt is analyzed or added manually.</p>
+            </div>
+            <button type="button" id="add-variable-btn">Add Variable Manually</button>
+        </div>
+
+        <div class="form-section"> <!-- Added form-section wrapper for save button for consistency -->
+            <button type="button" id="save-prompt-btn">Save Prompt to Library</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="forge.js"></script>
+</body>
